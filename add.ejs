@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Policy</title>
+  <link rel="stylesheet" href="/css/portal.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>HealthCare+ Insurance Portal</h1>
+    <nav>
+      <a href="/">View Policies</a>
+      <a href="/add" class="btn-primary">+ Add Policy</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Add New Policy</h2>
+    <form action="/add" method="POST" class="policy-form">
+      <label>Name
+        <input type="text" name="name" required />
+      </label>
+      <label>Email
+        <input type="email" name="email" required />
+      </label>
+      <label>Phone
+        <input type="tel" name="phone" pattern="[0-9]{10}" required />
+      </label>
+      <label>Age
+        <input type="number" name="age" min="1" max="120" required />
+      </label>
+      <label>City
+        <input type="text" name="city" required />
+      </label>
+      <label>Plan
+        <select name="plan" required>
+          <option value="">-- Select Plan --</option>
+          <option value="Basic">Basic</option>
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+          <option value="Platinum">Platinum</option>
+          <option value="Family Floater">Family Floater</option>
+        </select>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Save Policy</button>
+        <a href="/" class="btn-cancel">Cancel</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<%- include('partials/header', { title: 'Quote Requests' }) %>
+
+<section class="page-section">
+  <div class="page-header">
+    <div>
+      <h2>📋 Quote Requests</h2>
+      <p>All customer quote enquiries from the home page</p>
+    </div>
+    <a href="/" class="btn btn-outline">← Back to Home</a>
+  </div>
+
+  <% if (quotes.length === 0) { %>
+    <div class="empty-state">
+      <div class="empty-icon">📬</div>
+      <h3>No Quote Requests Yet</h3>
+      <p>Quote requests submitted via the home page will appear here.</p>
+      <a href="/" class="btn btn-primary">Go to Home</a>
+    </div>
+  <% } else { %>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Family Size</th>
+            <th>Sum Insured</th>
+            <th>Pincode</th>
+            <th>Requested On</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% quotes.forEach((q, i) => { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><strong><%= q.name %></strong></td>
+            <td><%= q.email %></td>
+            <td><%= q.phone %></td>
+            <td><%= q.familySize %></td>
+            <td><%= q.sumInsured %></td>
+            <td><%= q.pincode %></td>
+            <td><%= new Date(q.createdAt).toLocaleDateString('en-IN') %></td>
+            <td>
+              <a href="/quotes/delete/<%= q._id %>"
+                 onclick="return confirm('Remove this quote request?')"
+                 class="btn btn-sm btn-delete">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>

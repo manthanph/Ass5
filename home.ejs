@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Health Insurance Portal</title>
+  <link rel="stylesheet" href="/css/portal.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>HealthCare+ Insurance Portal</h1>
+    <nav>
+      <a href="/">View Policies</a>
+      <a href="/add" class="btn-primary">+ Add Policy</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>All Policies</h2>
+
+    <% if (policies.length === 0) { %>
+      <p class="empty">No policies found. Click "Add Policy" to create one.</p>
+    <% } else { %>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Plan</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% policies.forEach(p => { %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.email %></td>
+              <td><%= p.phone %></td>
+              <td><%= p.age %></td>
+              <td><%= p.city %></td>
+              <td><span class="plan-badge"><%= p.plan %></span></td>
+              <td class="actions">
+                <a href="/edit/<%= p._id %>" class="btn-edit">Edit</a>
+                <a href="/delete/<%= p._id %>" class="btn-delete"
+                   onclick="return confirm('Delete this policy?');">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 HealthCare+ Insurance Portal</p>
+  </footer>
+</body>
+</html>

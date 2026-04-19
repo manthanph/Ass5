@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Health Insurance Portal</title>
+  <link rel="stylesheet" href="S5.css">
+</head>
+
+<body>
+
+<!-- 🔷 HEADER -->
+<header class="header">
+  <div class="logo">HealthCare+</div>
+  <div class="call">Call: 1800-123-456</div>
+</header>
+
+<!-- 🔷 HERO SECTION -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Best Health Insurance Plans</h1>
+    <p>Get coverage starting at just ₹30/day</p>
+
+    <!-- FORM -->
+    <div class="hero-form">
+      <select>
+        <option>Family Size</option>
+        <option>Individual</option>
+        <option>Family</option>
+      </select>
+
+      <select>
+        <option>Sum Insured</option>
+        <option>₹5 Lakh</option>
+        <option>₹10 Lakh</option>
+      </select>
+
+      <input type="text" placeholder="Pincode">
+      <input type="text" placeholder="Mobile Number">
+
+      <button>View Plans</button>
+    </div>
+  </div>
+</section>
+
+<!-- 🔷 FEATURES -->
+<section class="features">
+  <div class="feature">✔ 15,000+ Hospitals</div>
+  <div class="feature">✔ Quick Claim Process</div>
+  <div class="feature">✔ No Cost EMI</div>
+  <div class="feature">✔ 5% Online Discount</div>
+</section>
+
+<!-- 🔷 PLANS -->
+<section class="plans">
+  <h2>Health Insurance Plans</h2>
+
+  <div class="plan-container">
+    <div class="plan">
+      <h3>Basic Care</h3>
+      <p>₹5000 / year</p>
+      <ul>
+        <li>Cashless Hospitals</li>
+        <li>Tax Benefits</li>
+      </ul>
+      <button>Buy</button>
+    </div>
+
+    <div class="plan">
+      <h3>Premium Care</h3>
+      <p>₹9000 / year</p>
+      <ul>
+        <li>Unlimited Coverage</li>
+        <li>Free Checkups</li>
+      </ul>
+      <button>Buy</button>
+    </div>
+
+    <div class="plan">
+      <h3>Family Plan</h3>
+      <p>₹12000 / year</p>
+      <ul>
+        <li>Family Coverage</li>
+        <li>Emergency Support</li>
+      </ul>
+      <button>Buy</button>
+    </div>
+  </div>
+</section>
+
+<!-- 🔷 COMPARE -->
+<section class="compare">
+  <h2>Why Choose Us?</h2>
+  <ul>
+    <li>✔ 10,000+ Network Hospitals</li>
+    <li>✔ Tax Savings up to ₹75,000</li>
+    <li>✔ Fast Claim Settlement</li>
+    <li>✔ Lifetime Renewability</li>
+  </ul>
+</section>
+
+<!-- 🔷 FAQ -->
+<section class="faq">
+  <h2>FAQs</h2>
+
+  <div class="faq-item">
+    <h4 onclick="toggle(this)">Do I need separate insurance?</h4>
+    <p>Yes, personal insurance gives better coverage.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4 onclick="toggle(this)">How many claims allowed?</h4>
+    <p>Multiple claims depending on policy.</p>
+  </div>
+
+  <div class="faq-item">
+    <h4 onclick="toggle(this)">Benefits of early insurance?</h4>
+    <p>Lower premium and better coverage.</p>
+  </div>
+</section>
+
+<!-- 🔷 FOOTER -->
+<footer>
+  <p>© 2026 Health Insurance Portal</p>
+</footer>
+
+<script>
+function toggle(el) {
+  let p = el.nextElementSibling;
+  p.style.display = p.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

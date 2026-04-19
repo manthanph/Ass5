@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Policy</title>
+  <link rel="stylesheet" href="/css/portal.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>HealthCare+ Insurance Portal</h1>
+    <nav>
+      <a href="/">View Policies</a>
+      <a href="/add" class="btn-primary">+ Add Policy</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Edit Policy</h2>
+    <form action="/edit/<%= policy._id %>" method="POST" class="policy-form">
+      <label>Name
+        <input type="text" name="name" value="<%= policy.name %>" required />
+      </label>
+      <label>Email
+        <input type="email" name="email" value="<%= policy.email %>" required />
+      </label>
+      <label>Phone
+        <input type="tel" name="phone" value="<%= policy.phone %>" pattern="[0-9]{10}" required />
+      </label>
+      <label>Age
+        <input type="number" name="age" value="<%= policy.age %>" min="1" max="120" required />
+      </label>
+      <label>City
+        <input type="text" name="city" value="<%= policy.city %>" required />
+      </label>
+      <label>Plan
+        <select name="plan" required>
+          <% const plans = ['Basic','Silver','Gold','Platinum','Family Floater']; %>
+          <% plans.forEach(pl => { %>
+            <option value="<%= pl %>" <%= policy.plan === pl ? 'selected' : '' %>><%= pl %></option>
+          <% }) %>
+        </select>
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Update Policy</button>
+        <a href="/" class="btn-cancel">Cancel</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

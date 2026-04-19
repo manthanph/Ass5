@@ -1,0 +1,89 @@
+<%- include('partials/header', { title: 'Edit Policy' }) %>
+
+<section class="page-section">
+  <div class="page-header">
+    <div>
+      <h2>✏️ Edit Policy</h2>
+      <p>Update insurance policy details for <strong><%= policy.name %></strong></p>
+    </div>
+    <a href="/policies" class="btn btn-outline">← Back to Policies</a>
+  </div>
+
+  <div class="form-card">
+    <form action="/policies/update/<%= policy._id %>" method="POST">
+
+      <div class="form-section-title">Customer Details</div>
+      <div class="form-row-3">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" name="name" value="<%= policy.name %>" required>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" name="email" value="<%= policy.email %>" required>
+        </div>
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="text" name="phone" value="<%= policy.phone %>" required>
+        </div>
+      </div>
+
+      <div class="form-section-title">Policy Details</div>
+      <div class="form-row-3">
+        <div class="form-group">
+          <label>Plan Type *</label>
+          <select name="planType" required>
+            <option <%= policy.planType === 'Basic Care'    ? 'selected' : '' %>>Basic Care</option>
+            <option <%= policy.planType === 'Premium Care'  ? 'selected' : '' %>>Premium Care</option>
+            <option <%= policy.planType === 'Family Plan'   ? 'selected' : '' %>>Family Plan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Sum Insured *</label>
+          <select name="sumInsured" required>
+            <option <%= policy.sumInsured === '₹3 Lakh'  ? 'selected' : '' %>>₹3 Lakh</option>
+            <option <%= policy.sumInsured === '₹5 Lakh'  ? 'selected' : '' %>>₹5 Lakh</option>
+            <option <%= policy.sumInsured === '₹10 Lakh' ? 'selected' : '' %>>₹10 Lakh</option>
+            <option <%= policy.sumInsured === '₹25 Lakh' ? 'selected' : '' %>>₹25 Lakh</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Family Size *</label>
+          <select name="familySize" required>
+            <option <%= policy.familySize === 'Individual'    ? 'selected' : '' %>>Individual</option>
+            <option <%= policy.familySize === 'Family (2)'    ? 'selected' : '' %>>Family (2)</option>
+            <option <%= policy.familySize === 'Family (3-4)'  ? 'selected' : '' %>>Family (3-4)</option>
+            <option <%= policy.familySize === 'Family (5+)'   ? 'selected' : '' %>>Family (5+)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row-3">
+        <div class="form-group">
+          <label>Annual Premium (₹) *</label>
+          <input type="number" name="premium" value="<%= policy.premium %>" min="1" required>
+        </div>
+        <div class="form-group">
+          <label>Start Date *</label>
+          <input type="date" name="startDate"
+            value="<%= new Date(policy.startDate).toISOString().split('T')[0] %>" required>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select name="status">
+            <option <%= policy.status === 'Active'  ? 'selected' : '' %>>Active</option>
+            <option <%= policy.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+            <option <%= policy.status === 'Expired' ? 'selected' : '' %>>Expired</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <a href="/policies" class="btn btn-outline">Cancel</a>
+        <button type="submit" class="btn btn-primary">Update Policy</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

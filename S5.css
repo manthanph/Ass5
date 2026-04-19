@@ -1,0 +1,112 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f7fa;
+}
+
+/* Header */
+.header {
+  background: #d32f2f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #ff5252, #ff1744);
+  color: white;
+  padding: 40px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-form {
+  margin-top: 20px;
+}
+
+.hero-form input,
+.hero-form select {
+  padding: 10px;
+  margin: 5px;
+}
+
+.hero-form button {
+  padding: 10px 20px;
+  background: white;
+  color: red;
+  border: none;
+  cursor: pointer;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 20px;
+}
+
+.feature {
+  font-weight: bold;
+}
+
+/* Plans */
+.plans {
+  text-align: center;
+  padding: 30px;
+}
+
+.plan-container {
+  display: flex;
+  justify-content: center;
+}
+
+.plan {
+  background: white;
+  margin: 10px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 2px 5px gray;
+}
+
+.plan button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+/* Compare */
+.compare {
+  background: #eee;
+  padding: 30px;
+  text-align: center;
+}
+
+/* FAQ */
+.faq {
+  padding: 30px;
+}
+
+.faq-item h4 {
+  cursor: pointer;
+  background: #ddd;
+  padding: 10px;
+}
+
+.faq-item p {
+  display: none;
+  padding: 10px;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

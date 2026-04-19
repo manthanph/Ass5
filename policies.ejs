@@ -1,0 +1,64 @@
+<%- include('partials/header', { title: 'Manage Policies' }) %>
+
+<section class="page-section">
+  <div class="page-header">
+    <div>
+      <h2>🛡️ Policy Records</h2>
+      <p>Manage all active insurance policies</p>
+    </div>
+    <a href="/policies/add" class="btn btn-primary">+ Add New Policy</a>
+  </div>
+
+  <% if (policies.length === 0) { %>
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <h3>No Policies Found</h3>
+      <p>Start by adding a new insurance policy.</p>
+      <a href="/policies/add" class="btn btn-primary">Add First Policy</a>
+    </div>
+  <% } else { %>
+    <div class="table-wrapper">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Plan</th>
+            <th>Sum Insured</th>
+            <th>Premium</th>
+            <th>Start Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% policies.forEach((p, i) => { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><strong><%= p.name %></strong></td>
+            <td><%= p.email %></td>
+            <td><%= p.phone %></td>
+            <td><%= p.planType %></td>
+            <td><%= p.sumInsured %></td>
+            <td>₹<%= p.premium.toLocaleString('en-IN') %></td>
+            <td><%= new Date(p.startDate).toLocaleDateString('en-IN') %></td>
+            <td>
+              <span class="badge badge-<%= p.status.toLowerCase() %>"><%= p.status %></span>
+            </td>
+            <td class="action-btns">
+              <a href="/policies/edit/<%= p._id %>" class="btn btn-sm btn-edit">Edit</a>
+              <a href="/policies/delete/<%= p._id %>"
+                 onclick="return confirm('Delete this policy?')"
+                 class="btn btn-sm btn-delete">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</section>
+
+<%- include('partials/footer') %>
